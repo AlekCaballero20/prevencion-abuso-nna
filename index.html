@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prevención del abuso y violencia contra NNA</title>
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jQuery (requerido por DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    table.dataTable {
+      margin: 0 auto;
+      width: 100%;
+    }
+    .chart-container {
+      width: 90%;
+      margin: 40px auto;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prevención del abuso y violencia contra niños, niñas y adolescentes</h1>
+  <p>
+    El abuso y la violencia contra niños, niñas y adolescentes (NNA) es un problema grave y
+    extendido que afecta a millones de personas en todo el mundo. A continuación se
+    presentan datos actuales sobre la prevalencia de la violencia y el abuso, así como
+    recomendaciones para la prevención y consejos prácticos para familias y educadores.
+  </p>
+
+  <h2>Estadísticas clave</h2>
+  <table id="stats-table" class="display">
+    <thead>
+      <tr>
+        <th>Grupo</th>
+        <th>Tipo</th>
+        <th>Número estimado</th>
+        <th>Razón de prevalencia</th>
+        <th>Porcentaje aproximado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- El contenido se genera dinámicamente con JavaScript -->
+    </tbody>
+  </table>
+
+  <div class="chart-container">
+    <canvas id="statsChart"></canvas>
+  </div>
+
+  <h2>Intervenciones recomendadas</h2>
+  <p>
+    La Organización Mundial de la Salud (OMS) y UNICEF recomiendan un enfoque multisectorial
+    y preventivo que incluya intervenciones en distintos niveles y sectores:
+  </p>
+  <ul>
+    <li><strong>Apoyo a padres y cuidadores:</strong> programas de crianza positiva y
+      educación sobre la crianza cariñosa y sin violencia impartidos en comunidades y
+      hogares.</li>
+    <li><strong>Formación y preparación para la vida:</strong> acceso a educación de calidad
+      y programas que enseñen a los niños y adolescentes sobre consentimiento,
+      resiliencia y habilidades socioemocionales, además de crear entornos escolares
+      seguros y libres de violencia.</li>
+    <li><strong>Modificación de normas y valores:</strong> campañas para transformar normas
+      sociales dañinas sobre disciplina infantil y roles de género, y promoción de la
+      igualdad y el papel activo de los padres en la crianza.</li>
+    <li><strong>Legislación y cumplimiento:</strong> promulgar y hacer cumplir leyes que
+      prohíban el castigo violento, el abuso y la explotación sexual de NNA.</li>
+    <li><strong>Servicios de respuesta y apoyo:</strong> detección temprana y atención a
+      las víctimas y sus familias para prevenir la revictimización y mitigar las
+      consecuencias del maltrato.</li>
+  </ul>
+
+  <h2>Consejos para padres y educadores</h2>
+  <p>
+    Para prevenir el abuso sexual infantil, expertos del Child&nbsp;Mind Institute recomiendan
+    hablar de manera abierta y continua con los niños sobre su cuerpo y sus límites.
+    Algunos consejos prácticos incluyen:
+  </p>
+  <ol>
+    <li>Hablar pronto sobre las partes del cuerpo y usar los nombres correctos.</li>
+    <li>Enseñar que algunas partes del cuerpo son íntimas y no deben ser vistas ni
+      tocadas por otras personas.</li>
+    <li>Establecer límites sobre el cuerpo y enseñar a los niños a decir “no” si alguien
+      intenta sobrepasarlos.</li>
+    <li>Decirles que no deben guardar secretos sobre su cuerpo y que siempre pueden
+      contar lo que ocurra.</li>
+    <li>Explicar que nadie debe tomar fotografías de sus partes íntimas.</li>
+    <li>Enseñarles cómo salir de situaciones incómodas o aterradoras y darles ejemplos de
+      qué decir o hacer.</li>
+    <li>Establecer una palabra clave que puedan usar para pedir ayuda cuando se
+      sientan inseguros.</li>
+    <li>Asegurarles que nunca estarán en problemas por compartir un secreto sobre su
+      cuerpo.</li>
+    <li>Explicar que el contacto físico puede sentirse bien o hacer cosquillas, pero
+      si es inapropiado se debe reportar.</li>
+    <li>Aclarar que las reglas se aplican también a personas conocidas y a otros
+      niños, no solo a desconocidos.</li>
+  </ol>
+
+  <script>
+    // Datos de prevalencia (por grupo) para la tabla y el gráfico
+    const statistics = [
+      {
+        grupo: 'Niñas y mujeres (global)',
+        tipo: 'Violencia sexual en la infancia',
+        numero: '650 millones',
+        ratio: '1 de cada 5',
+        porcentaje: 20
+      },
+      {
+        grupo: 'Niños y hombres (global)',
+        tipo: 'Violencia sexual en la infancia',
+        numero: '470 millones',
+        ratio: '1 de cada 7',
+        porcentaje: 14.3
+      },
+      {
+        grupo: 'Niños enfrentan castigo violento en casa (global)',
+        tipo: 'Castigo violento en el hogar',
+        numero: '1.6 mil millones',
+        ratio: '2 de cada 3',
+        porcentaje: 66.7
+      },
+      {
+        grupo: 'Niñas (EE. UU.)',
+        tipo: 'Abuso sexual infantil',
+        numero: 'N/D',
+        ratio: '1 de cada 4',
+        porcentaje: 25
+      },
+      {
+        grupo: 'Niños (EE. UU.)',
+        tipo: 'Abuso sexual infantil',
+        numero: 'N/D',
+        ratio: '1 de cada 13',
+        porcentaje: 7.7
+      },
+      {
+        grupo: 'Niños (Europa)',
+        tipo: 'Violencia sexual',
+        numero: 'N/D',
+        ratio: '1 de cada 5',
+        porcentaje: 20
+      },
+      {
+        grupo: 'Niños menores de 5 años (global)',
+        tipo: 'Violencia corporal o psicológica',
+        numero: '400 millones',
+        ratio: '6 de cada 10',
+        porcentaje: 60
+      },
+      {
+        grupo: 'Niños (global)',
+        tipo: 'Violencia sexual',
+        numero: '1 000 millones',
+        ratio: 'N/D',
+        porcentaje: null
+      }
+    ];
+
+    // Al cargar la página, construir la tabla y el gráfico
+    $(document).ready(function() {
+      // Poblar la tabla
+      const tbody = $('#stats-table tbody');
+      statistics.forEach(stat => {
+        const porcentajeTexto = stat.porcentaje !== null ? stat.porcentaje.toFixed(1) + '%' : 'N/D';
+        const row = `<tr>
+          <td>${stat.grupo}</td>
+          <td>${stat.tipo}</td>
+          <td>${stat.numero}</td>
+          <td>${stat.ratio}</td>
+          <td>${porcentajeTexto}</td>
+        </tr>`;
+        tbody.append(row);
+      });
+
+      // Inicializar DataTables (sin paginación ni búsqueda para simplicidad)
+      $('#stats-table').DataTable({
+        paging: false,
+        searching: false,
+        info: false,
+        language: {
+          emptyTable: 'No hay datos disponibles',
+          loadingRecords: 'Cargando...'
+        }
+      });
+
+      // Preparar los datos para el gráfico (solo valores con porcentaje definido)
+      const labels = statistics.filter(s => s.porcentaje !== null).map(s => s.grupo);
+      const datos = statistics.filter(s => s.porcentaje !== null).map(s => s.porcentaje);
+      const ctx = document.getElementById('statsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Porcentaje de prevalencia',
+            data: datos,
+          }]
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Prevalencia de abuso y violencia por grupo'
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.formattedValue + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              title: {
+                display: true,
+                text: 'Porcentaje (%)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Grupo'
+              },
+              ticks: {
+                maxRotation: 90,
+                minRotation: 45,
+                autoSkip: false
+              }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
