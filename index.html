@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prevención del abuso y violencia contra NNA</title>
+  <title>Prevención del abuso y violencia contra NNA en Colombia</title>
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
   <!-- Chart.js -->
@@ -13,21 +13,41 @@
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <style>
+    /* Paleta de colores inspirada en el logo de Musicala */
+    :root {
+      --primary-color: #6f3bb1; /* morado */
+      --secondary-color: #e63a85; /* rosa */
+      --tertiary-color: #007acc; /* azul */
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
       line-height: 1.6;
       background-color: #f9f9f9;
+      color: #333;
     }
     h1, h2 {
       text-align: center;
+      color: var(--primary-color);
     }
+    /* Estilo para la tabla DataTable */
     table.dataTable {
       margin: 0 auto;
       width: 100%;
+      border-collapse: collapse;
+    }
+    table.dataTable thead {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+    table.dataTable tbody tr:nth-child(even) {
+      background-color: #f2f0fa;
+    }
+    table.dataTable tbody tr:hover {
+      background-color: #fce8f4;
     }
     .chart-container {
-      width: 90%;
+      width: 95%;
       margin: 40px auto;
     }
     ul, ol {
@@ -36,15 +56,16 @@
   </style>
 </head>
 <body>
-  <h1>Prevención del abuso y violencia contra niños, niñas y adolescentes</h1>
+  <!-- Logotipo de Musicala -->
+  <img src="version_vertical_color.jpg" alt="Musicala" style="display:block;margin:0 auto 20px auto;width:200px;">
+  <h1>Prevención del abuso y violencia contra niños, niñas y adolescentes en Colombia</h1>
   <p>
-    El abuso y la violencia contra niños, niñas y adolescentes (NNA) es un problema grave y
-    extendido que afecta a millones de personas en todo el mundo. A continuación se
-    presentan datos actuales sobre la prevalencia de la violencia y el abuso, así como
-    recomendaciones para la prevención y consejos prácticos para familias y educadores.
+    El abuso y la violencia contra niños, niñas y adolescentes (NNA) es un problema grave en Colombia.
+    A continuación se presentan cifras recientes sobre las diferentes formas de violencia que afectan a la niñez en el país,
+    así como recomendaciones de organismos internacionales para la prevención y consejos prácticos para familias y educadores.
   </p>
 
-  <h2>Estadísticas clave</h2>
+  <h2>Estadísticas clave de Colombia</h2>
   <table id="stats-table" class="display">
     <thead>
       <tr>
@@ -117,6 +138,7 @@
   <script>
     // Datos de prevalencia (por grupo) para la tabla y el gráfico
     const statistics = [
+      // Datos globales
       {
         grupo: 'Niñas y mujeres (global)',
         tipo: 'Violencia sexual en la infancia',
@@ -127,12 +149,12 @@
       {
         grupo: 'Niños y hombres (global)',
         tipo: 'Violencia sexual en la infancia',
-        numero: '470 millones',
+        numero: '470 millones (promedio de 410-530 M)',
         ratio: '1 de cada 7',
         porcentaje: 14.3
       },
       {
-        grupo: 'Niños enfrentan castigo violento en casa (global)',
+        grupo: 'Niños que enfrentan castigo violento en casa (global)',
         tipo: 'Castigo violento en el hogar',
         numero: '1.6 mil millones',
         ratio: '2 de cada 3',
@@ -172,6 +194,91 @@
         numero: '1 000 millones',
         ratio: 'N/D',
         porcentaje: null
+      },
+      // Datos de Colombia
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Casos totales de violencia (2023)',
+        numero: '35.339',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Homicidios (2023)',
+        numero: '607',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Violencia intrafamiliar (2023)',
+        numero: '6.369',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Violencia sexual (2023)',
+        numero: '19.192',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Exámenes médico-legales por presuntos delitos sexuales (2023)',
+        numero: '13.986',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Ingresos al sistema de protección por violencia sexual (ene-ago 2023)',
+        numero: '11.135',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Niños víctimas de violencia infantil (2023)',
+        numero: '11.441',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Niños víctimas de abuso sexual (2023)',
+        numero: '6.007',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Niños víctimas de violencia intrafamiliar (2023)',
+        numero: '1.844',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Delitos sexuales contra menores (ene-ago 2023)',
+        numero: '8.295',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Casos de violencia sexual en entornos educativos (2023)',
+        numero: '2.411',
+        ratio: 'N/D',
+        porcentaje: null
+      },
+      {
+        grupo: 'Niños y niñas (Colombia)',
+        tipo: 'Violencia sexual en línea (2023)',
+        numero: '30.500',
+        ratio: 'N/D',
+        porcentaje: null
       }
     ];
 
@@ -202,29 +309,36 @@
         }
       });
 
-      // Preparar los datos para el gráfico (solo valores con porcentaje definido)
-      const labels = statistics.filter(s => s.porcentaje !== null).map(s => s.grupo);
-      const datos = statistics.filter(s => s.porcentaje !== null).map(s => s.porcentaje);
+      // Preparar los datos para el gráfico usando el número de casos y filtrando solo datos de Colombia
+      const filtered = statistics.filter(s => s.grupo.includes('(Colombia)'));
+      const labels = filtered.map(s => s.tipo);
+      const datos = filtered.map(s => {
+        const sanitized = s.numero.toString().replace(/\./g, '');
+        return parseInt(sanitized, 10) || 0;
+      });
       const ctx = document.getElementById('statsChart').getContext('2d');
       new Chart(ctx, {
         type: 'bar',
         data: {
           labels: labels,
           datasets: [{
-            label: 'Porcentaje de prevalencia',
+            label: 'Número de casos',
             data: datos,
+            backgroundColor: labels.map(() => 'rgba(111, 59, 177, 0.8)'),
+            borderColor: labels.map(() => 'rgba(111, 59, 177, 1)'),
+            borderWidth: 1
           }]
         },
         options: {
           plugins: {
             title: {
               display: true,
-              text: 'Prevalencia de abuso y violencia por grupo'
+              text: 'Casos de violencia contra la niñez en Colombia'
             },
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  return context.formattedValue + '%';
+                  return context.formattedValue;
                 }
               }
             }
@@ -232,16 +346,15 @@
           scales: {
             y: {
               beginAtZero: true,
-              max: 100,
               title: {
                 display: true,
-                text: 'Porcentaje (%)'
+                text: 'Número de casos'
               }
             },
             x: {
               title: {
                 display: true,
-                text: 'Grupo'
+                text: 'Categoría'
               },
               ticks: {
                 maxRotation: 90,
